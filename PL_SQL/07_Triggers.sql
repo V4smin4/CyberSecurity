@@ -1,8 +1,13 @@
 -- ==========================================
 -- Cybersecurity Training CTF Database
--- File: TRG_AUDIT_SUBMISSIONS.sql
--- Description: Audit submission operations
+-- File: 07_Triggers.sql
+-- Description: Database Triggers
 -- Database: Oracle
+-- ==========================================
+
+
+-- ==========================================
+-- 1. Audit Submissions
 -- ==========================================
 
 CREATE OR REPLACE TRIGGER TRG_AUDIT_SUBMISSIONS
@@ -31,6 +36,31 @@ BEGIN
         || ', Score: '
         || :NEW.Score_Awarded
     );
+
+END;
+/
+
+
+-- ==========================================
+-- 2. Automatically Manage Challenge Dates
+-- ==========================================
+
+CREATE OR REPLACE TRIGGER TRG_CHALLENGES_DATES
+BEFORE INSERT OR UPDATE ON Challenges
+FOR EACH ROW
+BEGIN
+
+    -- Set creation date automatically for new challenges
+    IF INSERTING THEN
+        IF :NEW.Created_Date IS NULL THEN
+            :NEW.Created_Date := SYSDATE;
+        END IF;
+    END IF;
+
+    -- Update modification date automatically
+    IF UPDATING THEN
+        :NEW.Updated_Date := SYSDATE;
+    END IF;
 
 END;
 /
