@@ -129,8 +129,8 @@ Example indexes include:
 
 ## ERD
 
-The project includes an Entity Relationship Diagram (ERD) describing
-the database tables and their relationships.
+The project includes an Entity Relationship Diagram (`Documentation/ERD.png`)
+describing the database tables and their relationships.
 
 The ERD represents primary keys, foreign keys, and relationships between
 the main entities.
@@ -139,8 +139,8 @@ the main entities.
 
 ## Project Structure
 
-```text
-Cybersecurity-Training-CTF-Database/
+```
+CyberSecurity/
 │
 ├── SQL/
 │   ├── 01_Create_Tables.sql
@@ -163,13 +163,17 @@ Cybersecurity-Training-CTF-Database/
 │   └── Performance.sql
 │
 ├── Documentation/
-│   ├── Project_Overview.md
+│   ├── Problem_Statement.md
 │   ├── Requirements.md
 │   ├── Business_Rules.md
-│   └── Data_Dictionary.md
+│   ├── Data_Dictionary.md
+│   └── ERD.png
 │
 ├── Screenshots/
 │
-├── ERD.png
-│
 └── README.md
+```
+
+## About
+
+No description, website, or topics provided.
